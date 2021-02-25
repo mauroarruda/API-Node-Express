@@ -1,23 +1,12 @@
 import express from 'express';
+import 'reflect-metadata';
+import './database';
+import { router } from './routes';
 
-const api = express();
+const app = express();
 
-api.listen(3000, () => {
-    console.log('Server Is Running!');
-});
+app.use(express.json());
 
-api.post('/', (request, response) => {
+app.use(router);
 
-});
-
-api.get('/', (request, response) => {
-    return response.json('Requisição GET');
-});
-
-api.put('/', (request, response) => {
-    
-});
-
-api.delete('/', (request, response) => {
-    
-});
+app.listen(3001, () => { console.log("Server Is Running!"); });
